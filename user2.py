@@ -53,6 +53,7 @@ class FileClient:
     		self.s.sendall(data)
     		sleep(1)
     		self.s.send("<END>".encode("utf-8"))
+    		print("sened")
     def delete(self,p):
     	os.remove(p)
     def edit(self, path):
@@ -69,6 +70,7 @@ class FileClient:
 	        				file_data1 += data1
 	        	file.write(file_data1)
 	        	file.close()
+	        	print("done")
         except:
         	pass
     def runn(self, name):
@@ -96,6 +98,8 @@ class FileClient:
             file_dict[name] = "folder" if os.path.isdir(path1) else "file"
         file_dict_str = str(file_dict)
         self.s.send(file_dict_str.encode("utf-8"))
+        print("sened")
+        print(file_dict)
 
     def start(self):
         msg_thread = th.Thread(target=self.msg)
