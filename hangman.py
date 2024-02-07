@@ -88,7 +88,7 @@ Screen:
 			rows :3
 			size_hint:0.9,0.5
 			pos_hint:{"center_x":0.5}
-			spacing:"10sp"
+			spacing:"15sp"
 			id:key
 """
 class hangman(MDApp):
@@ -159,9 +159,9 @@ class hangman(MDApp):
 	def on_start(self):
 		letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 		for letter in letters:
-			btn = MDCard(size_hint=(0.01,0.01),radius=[20],md_bg_color=(90/255, 190/255, 210/255, 1),on_release=lambda x ,l = letter.lower() :self.check(l))
+			btn = MDCard(id=letter,size_hint=(0.01,0.01),elevation=3.5,radius=[20],md_bg_color=(95/255, 190/255, 220/255, 1),on_release=lambda x ,l = letter.lower() :self.check(l))
 			self.btn = btn
-			text = MDLabel(text=letter,halign="center",font_size="40sp")
+			text = MDLabel(text=letter,halign="center",bold=True)
 			btn.add_widget(text)
 			self.root.ids.key.add_widget(btn)				
 		self.create()
